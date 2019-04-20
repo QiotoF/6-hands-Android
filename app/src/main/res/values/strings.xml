@@ -5,10 +5,9 @@
     <string name="title">Six Hands</string>
     <string name="description">Сервис для безопасной сдачи и аренды недвижимости</string>
     <string name="vk_button">Войти с помощью Вконтакте</string>
-
+    <string name="skip_auth">Пропустить</string>
 
     <!--activity_main-->
-
     <string name="nav_profile_title">Профиль</string>
     <string name="nav_list_title">Список</string>
     <string name="nav_map_title">Карта</string>
@@ -17,4 +16,12 @@
     <string name="change_data">Изменить данные</string>
     <string name="nav_dialog_title">Связь</string>
     <string name="unauthorized_name">Anonymous</string>
+    <string name="plus_facebook">+   Facebook</string>
+
+    <!--flat card-->
+    <string name="profile_flat_point">.</string>
+    <string name="profile_flat_browsings">Просмотров:</string>
+    <string name="profile_flat_new_browsings">Новых:</string>
+    <string name="profile_flat_edit">Редактировать</string>
+
 </resources>

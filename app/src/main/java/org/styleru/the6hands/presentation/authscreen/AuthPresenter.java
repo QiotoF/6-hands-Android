@@ -36,6 +36,10 @@ public class AuthPresenter extends MvpPresenter<AuthView> {
         router.newRootScreen(new Screens.MainScreen());
     }
 
+    void onLoginSkipped(){
+        router.newRootScreen(new Screens.MainScreen());
+    }
+
     void onLoginFailed(){
         getViewState().showMessage("Error while logging");
     }

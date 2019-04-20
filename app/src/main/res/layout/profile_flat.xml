@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/profile_flat_guideline3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/profile_flat_guideline4"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75"
+        />
+
+    <ImageView
+        android:id="@+id/profile_flat_picture"
+        android:layout_width="match_parent"
+        android:layout_height="171dp"
+        android:src="@drawable/flat"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/profile_flat_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/profile_flat_pencil"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/edit_pencil_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/profile_flat_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_flat_edit"
+            android:fontFamily="sans-serif"
+            android:textSize="@dimen/text_size_flat"
+            android:textColor="@color/profile_text_color_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/profile_flat_metro_circle"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="6.5dp"
+        android:background="@drawable/small_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_picture"
+        />
+
+    <TextView
+        android:id="@+id/profile_flat_metro_station"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textSize="@dimen/text_size_flat"
+        android:layout_marginStart="2dp"
+        android:textColor="@color/colorPrimaryDark"
+        tools:text="Станция метро"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_picture"
+        app:layout_constraintStart_toEndOf="@id/profile_flat_metro_circle"
+        app:layout_constraintEnd_toStartOf="@id/profile_flat_guideline3"/>
+
+    <TextView
+        android:id="@+id/profile_flat_dot"
+        android:layout_width="4dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/profile_flat_point"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_size_flat"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/profile_flat_guideline3"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_picture" />
+    
+    <TextView
+        android:id="@+id/profile_flat_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:textSize="@dimen/text_size_flat"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif"
+        android:gravity="end"
+        tools:text="10000000 Р"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/profile_flat_guideline4"/>
+
+    <TextView
+        android:id="@+id/profile_flat_number_rooms"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif"
+        android:textSize="@dimen/text_size_flat"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        tools:text="1-комн.кв."
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/profile_flat_guideline3"
+        app:layout_constraintEnd_toStartOf="@id/profile_flat_guideline4"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_picture"
+        />
+    
+    <TextView
+        android:id="@+id/profile_flat_browsings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_flat_browsings"
+        android:textSize="@dimen/text_size_flat"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_metro_station"/>
+
+    <TextView
+        android:id="@+id/profile_flat_number_of_browsings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginStart="4dp"
+        android:textSize="@dimen/text_size_flat"
+        android:textColor="@color/colorPrimaryDark"
+        tools:text="100"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_metro_station"
+        app:layout_constraintStart_toEndOf="@+id/profile_flat_browsings"/>
+
+    <TextView
+        android:id="@+id/profile_flat_new_browsings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_flat"
+        android:text="@string/profile_flat_new_browsings"
+        android:layout_marginBottom="6dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_metro_station"
+        app:layout_constraintStart_toEndOf="@id/profile_flat_number_of_browsings"/>
+
+    <TextView
+        android:id="@+id/profile_flat_number_of_new_browsings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_flat"
+        android:layout_marginBottom="6dp"
+        android:layout_marginStart="4dp"
+        tools:text="50"
+        app:layout_constraintStart_toEndOf="@id/profile_flat_new_browsings"
+        app:layout_constraintTop_toBottomOf="@id/profile_flat_metro_station"/>
+
+</android.support.constraint.ConstraintLayout>

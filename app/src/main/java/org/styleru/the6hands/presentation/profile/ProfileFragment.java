@@ -2,11 +2,17 @@ package org.styleru.the6hands.presentation.profile;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,11 +20,16 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.mikhaellopez.circularimageview.CircularImageView;
+import com.vk.api.sdk.VK;
 
 import org.styleru.the6hands.R;
 import org.styleru.the6hands.SixHandsApplication;
+import org.styleru.the6hands.domain.entities.Flat;
 import org.styleru.the6hands.domain.entities.User;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -32,7 +43,19 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     TextView name;
 
     @BindView(R.id.profile_pic)
-    CircularImageView profilePic;
+    ImageView profilePic;
+
+    @BindView(R.id.vk_button)
+    ImageView vk_button;
+
+    @BindView(R.id.add_facebook_button)
+    TextView addFacebookButton;
+
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
+
+    @BindView(R.id.profile_recycler_view)
+    RecyclerView recyclerView;
 
     @Inject
     @InjectPresenter
@@ -42,6 +65,8 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     ProfilePresenter provideProfilePresenter(){
         return profilePresenter;
     }
+
+    private ProfileFlatAdapter adapter;
 
     @Override
     public void onAttach(Context context) {
@@ -54,17 +79,62 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ButterKnife.bind(this, view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new ProfileFlatAdapter(getContext());
+        recyclerView.setAdapter(adapter);
+        Glide.with(this)
+                .load(R.drawable.ic_plus)
+                .into(fab);
+        Glide.with(this)
+                .load(R.drawable.vk_logo_1)
+                .apply(RequestOptions.circleCropTransform())
+                .into(vk_button);
         return view;
     }
 
     @Override
     public void setUser(User user) {
         name.setText(user.getFirstName());
-        Glide.with(this).load(user.getPhoto200Url()).into(profilePic);
+        Glide.with(this).load(user.getPhoto200Url())
+                .apply(RequestOptions.circleCropTransform())
+                .into(profilePic);
+    }
+
+    @Override
+    public void showFlats(List<Flat> data){
+        adapter.setItems(data);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(dy > 0) fab.hide();
+                else fab.show();
+            }
+        });
     }
 
     @OnClick(R.id.change_profile_data)
     void onChangeDataClicked(){
+
+    }
+
+    @OnClick(R.id.fab)
+    void onFABClicked(){
+
+    }
+
+    @OnClick(R.id.add_facebook_button)
+    void onFacebookButtonClicked(){
+
+    }
+
+    @OnClick(R.id.vk_button)
+    void onVKButtonClicked(){
 
     }
 
