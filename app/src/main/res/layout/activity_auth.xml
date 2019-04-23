@@ -48,7 +48,7 @@
         android:id="@+id/vk_auth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/auth_vk_button"
         android:gravity="center_horizontal|center_vertical"
         android:padding="16dp"
@@ -61,6 +61,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/skip_auth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/skip_auth"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/skip_auth_text_color"
+        app:layout_constraintTop_toBottomOf="@id/vk_auth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <ProgressBar

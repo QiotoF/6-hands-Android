@@ -2,4 +2,7 @@
 <resources>
     <!-- fragment_profile -->
     <dimen name="profile_sides_margin">16dp</dimen>
+
+    <!--flat_card-->
+    <dimen name="text_size_flat">14sp</dimen>
 </resources>

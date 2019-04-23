@@ -41,6 +41,9 @@ public class AuthActivity extends MvpAppCompatActivity implements AuthView {
     @BindView(R.id.vk_auth)
     TextView vkAuth;
 
+    @BindView(R.id.skip_auth)
+    TextView skipAuth;
+
     @BindView(R.id.auth_loader)
     ProgressBar progressBar;
 
@@ -116,5 +119,10 @@ public class AuthActivity extends MvpAppCompatActivity implements AuthView {
     @OnClick(R.id.vk_auth)
     void onClickVkAuth(){
         authPresenter.onClickVkAuth();
+    }
+
+    @OnClick(R.id.skip_auth)
+    void onClickSkipAuth(){
+        authPresenter.onLoginSkipped();
     }
 }
