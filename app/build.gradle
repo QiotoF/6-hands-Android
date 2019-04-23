@@ -84,4 +84,7 @@ dependencies {
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    //ExpandableTextView
+    implementation 'com.ms-square:expandableTextView:0.1.4'
 }

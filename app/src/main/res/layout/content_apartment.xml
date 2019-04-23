@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/fragment_apartment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_adress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="ул. Академика Янгеля, 50"
+            android:textAlignment="textStart"
+            android:textColor="#b3000000"
+            android:textSize="38sp"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/image_metro_color"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/circle_metro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <TextView
+            android:id="@+id/tv_metro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/lato_light"
+            android:text="Славянский бульвар"
+            android:textAlignment="textEnd"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_metro_color"
+            app:layout_constraintStart_toEndOf="@+id/image_metro_color" />
+
+        <ImageView
+            android:id="@+id/image_clock"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_access_time_black_2_4_dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_metro_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_metro_name" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="10 мин."
+            android:textAlignment="textEnd"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/image_clock"
+            app:layout_constraintStart_toEndOf="@+id/image_clock" />
+
+        <View
+
+            android:id="@+id/divider_1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#d7d7d7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_metro_color" />
+
+        <View
+
+            android:id="@+id/divider_2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#d7d7d7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_area" />
+
+        <View
+
+            android:id="@+id/divider_3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#d7d7d7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mutual_friends_number" />
+
+        <View
+
+            android:id="@+id/divider_4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#d7d7d7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <ImageView
+            android:id="@+id/image_door"
+            android:layout_width="16dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_1"
+            app:srcCompat="@drawable/door" />
+
+        <ImageView
+            android:id="@+id/image_arrows"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_1"
+            app:srcCompat="@drawable/arrow_up_right" />
+
+        <ImageView
+            android:id="@+id/image_stairs"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.83"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_1"
+            app:srcCompat="@drawable/stairs" />
+
+        <TextView
+            android:id="@+id/tv_rooms_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="1 ком."
+            android:textAlignment="textEnd"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/image_door"
+            app:layout_constraintStart_toStartOf="@+id/image_door"
+            app:layout_constraintTop_toBottomOf="@+id/image_door" />
+
+        <TextView
+            android:id="@+id/tv_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="100 м.кв."
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/image_arrows"
+            app:layout_constraintStart_toStartOf="@+id/image_arrows"
+            app:layout_constraintTop_toBottomOf="@+id/image_arrows" />
+
+        <TextView
+            android:id="@+id/tv_floor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="3 этаж (из 17)"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/image_stairs"
+            app:layout_constraintStart_toStartOf="@+id/image_stairs"
+            app:layout_constraintTop_toBottomOf="@+id/image_stairs" />
+
+        <TextView
+            android:id="@+id/tv_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="Хозяин"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_2" />
+
+        <TextView
+            android:id="@+id/tv_owner_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/lato_light"
+            android:text="Светлана Олегова"
+            android:textColor="#55c5b7"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_owner" />
+
+        <ImageView
+            android:id="@+id/image_owner_avatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="fitEnd"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mutual_friends_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_owner_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_owner"
+            app:srcCompat="@drawable/avatar" />
+
+        <ImageView
+            android:id="@+id/image_friends"
+            android:layout_width="16dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mutual_friends_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_mutual_friends_number"
+            app:srcCompat="@drawable/two_men" />
+
+        <TextView
+            android:id="@+id/tv_mutual_friends_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/lato_light"
+            android:text="5 общих друзей"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/image_friends"
+            app:layout_constraintTop_toBottomOf="@+id/tv_owner_name" />
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="Об этом жилье"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_3" />
+
+        <org.styleru.the6hands.ExpandableTextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/lato_light"
+            android:textAlignment="textStart"
+            android:text="@string/apartment_description"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about" />
+
+        <TextView
+            android:id="@+id/tv_facilities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="Удобства"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_4" />
+
+        <ImageView
+            android:id="@+id/image_snow"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_facilities"
+            app:layout_constraintTop_toBottomOf="@+id/tv_facilities"
+            app:srcCompat="@drawable/snow" />
+
+        <TextView
+            android:id="@+id/tv_fridge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="Холодильник"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/image_snow"
+            app:layout_constraintStart_toEndOf="@+id/image_snow"
+            app:layout_constraintTop_toTopOf="@+id/image_snow" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="Можно с животными"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+            app:layout_constraintStart_toEndOf="@+id/imageView8"
+            app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="Бесплатная парковка"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+            app:layout_constraintStart_toEndOf="@+id/imageView10"
+            app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="Кондиционер"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+            app:layout_constraintStart_toEndOf="@+id/imageView11"
+            app:layout_constraintTop_toTopOf="@+id/imageView11" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/lato_light"
+            android:text="Wi-Fi "
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/image_snow"
+            app:layout_constraintTop_toBottomOf="@+id/image_snow"
+            app:srcCompat="@drawable/paw_print" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            app:srcCompat="@drawable/wifi" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9"
+            app:srcCompat="@drawable/parking" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/imageView10"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10"
+            app:srcCompat="@drawable/fan" />
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/btn_rent"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:text="Снять квартиру"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/lato_light"
+            android:text="10 000 ₽"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_adress" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

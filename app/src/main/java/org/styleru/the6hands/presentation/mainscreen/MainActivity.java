@@ -47,7 +47,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     };
 
     @ProvidePresenter
-    MainPresenter provideMainPresenter(){
+    MainPresenter provideMainPresenter() {
         return mainPresenter;
     }
 
