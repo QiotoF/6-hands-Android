@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -45,6 +47,39 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
+    @BindView(R.id.tv_adress)
+    TextView adressTextView;
+
+    @BindView(R.id.image_metro_color)
+    View metroColorImage;
+
+    @BindView(R.id.tv_metro_name)
+    TextView mentroNameTextView;
+
+    @BindView(R.id.image_clock)
+    ImageView clockImage;
+
+    @BindView(R.id.tv_time)
+    TextView timeTextView;
+
+    @BindView(R.id.tv_rooms_number)
+    TextView roomsNumberTextView;
+
+    @BindView(R.id.tv_area)
+    TextView areaTextView;
+
+    @BindView(R.id.tv_floor)
+    TextView floorTextView;
+
+    @BindView(R.id.tv_owner_name)
+    TextView ownerNameTextView;
+
+    @BindView(R.id.image_owner_avatar)
+    TextView ownerAvatarImage;
+
+    @BindView(R.id.tv_mutual_friends_number)
+    TextView mutualFriendsNumberTextView;
+
     @BindView(R.id.tv_description)
     ExpandableTextView descriptionTextView;
 
@@ -65,7 +100,6 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayShowTitleEnabled(false);
         collapsingToolbarLayout.setTitleEnabled(false);
-
         descriptionTextView.setTrimLength(200);
 
         return view;
