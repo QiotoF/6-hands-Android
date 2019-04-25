@@ -22,6 +22,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter;
 import org.styleru.the6hands.ExpandableTextView;
 import org.styleru.the6hands.R;
 import org.styleru.the6hands.SixHandsApplication;
+import org.styleru.the6hands.domain.entities.Flat;
 
 import java.util.Objects;
 
@@ -54,7 +55,7 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
     View metroColorImage;
 
     @BindView(R.id.tv_metro_name)
-    TextView mentroNameTextView;
+    TextView metroNameTextView;
 
     @BindView(R.id.image_clock)
     ImageView clockImage;
@@ -79,6 +80,9 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
 
     @BindView(R.id.tv_mutual_friends_number)
     TextView mutualFriendsNumberTextView;
+
+    @BindView(R.id.tv_price)
+    TextView priceTextView;
 
     @BindView(R.id.tv_description)
     ExpandableTextView descriptionTextView;
@@ -109,5 +113,64 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void setApartment(Flat flat) {
+        setAdress(flat.getAdress());
+        setPrice(flat.getPrice());
+        setMetro(flat.getMetroStation());
+        setTime(flat.getTime());
+        setRoomsNumber(flat.getNumberRooms());
+        setArea(flat.getArea());
+        setFloor(flat.getFloor());
+        setOwner(flat.getOwner());
+        setMutualFriendsNumber(flat.getMutualFriendsNumber());
+        setDescription(flat.getDescription());
+        setFacilities(flat.getFacilities());
+    }
+
+    private void setAdress(String adress) {
+        adressTextView.setText(adress);
+    }
+
+    private void setPrice(int price) {
+        priceTextView.setText(String.valueOf(price) + "$");
+    }
+
+    private void setMetro(String metro) {
+        metroNameTextView.setText(metro);
+    }
+
+    private void setTime(String time) {
+        timeTextView.setText(time);
+    }
+
+    private void setRoomsNumber(int roomsNumber) {
+        roomsNumberTextView.setText(String.valueOf(roomsNumber));
+    }
+
+    private void setArea() {
+
+    }
+
+    private void setFloor() {
+
+    }
+
+    private void setOwner() {
+
+    }
+
+    private void setMutualFriendsNumber() {
+
+    }
+
+    private void setDescription() {
+
+    }
+
+    private void setFacilities() {
+
     }
 }

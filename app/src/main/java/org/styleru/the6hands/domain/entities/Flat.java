@@ -3,7 +3,12 @@ package org.styleru.the6hands.domain.entities;
 import org.parceler.ParcelConstructor;
 
 public class Flat {
-    private int price, flatPhotoUrl, numberRooms, numberBrowsings, numberNewBrowsings, metroBranchColor;
+    private int price;
+    private int flatPhotoUrl;
+    private int numberRooms;
+    private int numberBrowsings;
+    private int numberNewBrowsings;
+    private int metroBranchColor;
     private String metroStation;
 
     @ParcelConstructor
