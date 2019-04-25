@@ -21,6 +21,7 @@
     <color name="facebook_button_color_pressed">#461D97</color>
     <color name="profile_text_color_light">#fefefe</color>
     <color name="fab_green">#55c5b7</color>
+    <color name="picture_loading_color">#8affffff</color>
 
     <!--metro branches colours-->
     <color name="metro1_sokolnicheskaya">#EF161E</color>
@@ -34,7 +35,6 @@
     <color name="metro9_serpuhovsko_timyryazevskaya">#999999</color>
     <color name="metro10_lublinskaya">#99CC00</color>
     <color name="metro11_BKL">#82C0C0</color>
-    <color name="metro11A_kahovskayay">#82C0C0</color>
     <color name="metro12_butovskaya">#A1B3D4</color>
     <color name="metro13_monorels">#9999FF</color>
     <color name="metro14_MTsK">#FFFFFF</color>

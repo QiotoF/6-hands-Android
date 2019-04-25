@@ -4,8 +4,7 @@ package org.styleru.the6hands.presentation.profile;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
-import org.styleru.the6hands.R;
-import org.styleru.the6hands.domain.entities.Flat;
+import org.styleru.the6hands.domain.entities.Apartment;
 import org.styleru.the6hands.domain.interactors.UserInfoInteractor;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import io.reactivex.schedulers.Schedulers;
 public class ProfilePresenter extends MvpPresenter<ProfileView> {
 
 
-    private final List<Flat> data = new ArrayList<>(3);
+    private final List<Apartment> data = new ArrayList<>(3);
     private final UserInfoInteractor userInfoInteractor;
 
     @Inject
@@ -40,15 +39,17 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
                         e -> {}
                 );
 
-        data.add(new Flat(1000, 4, 100, 50,
-                "Славянский бульвар", R.color.metro3_arbatsko_pokrovskaya,
-                R.drawable.flat));
-        data.add(new Flat(1000, 4, 100, 50,
-                "Сокольники", R.color.metro1_sokolnicheskaya,
-                R.drawable.flat));
-        data.add(new Flat(1000, 4, 100, 50,
-                "Добрынинская", R.color.metro5_koltsevaya,
-                R.drawable.flat));
+        data.add(new Apartment(1, "1", 1, 1, 1, 1
+        ,1, 1000, 1, 1, 1,
+                1, 1, null, 1, null, 1, "Sokolniki"));
+        data.add(new Apartment(1, "1", 1, 1, 1, 1
+                ,1, 1000, 1, 1, 1,
+                1, 1, null, 1, null, 2, "Sokolniki"));
+        data.add(new Apartment(1, "1", 1, 1, 1, 1
+                ,1, 1000, 1, 1, 1,
+                1, 1, null, 1, null, 3, "Sokolniki"));
+
+
 
         getViewState().showFlats(data);
     }

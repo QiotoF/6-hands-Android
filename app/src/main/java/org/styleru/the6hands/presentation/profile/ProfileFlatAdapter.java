@@ -1,9 +1,11 @@
 package org.styleru.the6hands.presentation.profile;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import org.styleru.the6hands.R;
-import org.styleru.the6hands.domain.entities.Flat;
+import org.styleru.the6hands.domain.entities.Apartment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,7 @@ import butterknife.OnClick;
 
 public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.ViewHolder> {
 
-    private List<Flat> data = new ArrayList<>();
+    private List<Apartment> data = new ArrayList<>();
     private Context context;
 
     @Inject
@@ -46,15 +48,52 @@ public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProfileFlatAdapter.ViewHolder viewHolder, int i) {
-        Flat flat = data.get(i);
-        Glide.with(viewHolder.itemView.getContext())
-                .load(flat.getFlatPhotoUrl())
-                .into(viewHolder.profileFlatPicture);
-        viewHolder.flatInfo.get(0).setBackgroundColor(
-                context.getResources().getColor(flat.getMetroBranchColor()));
-        viewHolder.flatInfo.get(1).setText(flat.getMetroStation());
-        viewHolder.flatInfo.get(2).setText(String.valueOf(flat.getNumberRooms()));
-        viewHolder.flatInfo.get(3).setText(String.valueOf(flat.getPrice()));
+        Apartment apartment = data.get(i);
+        viewHolder.flatInfo.get(0).setText(apartment.getMetroStation());
+        viewHolder.flatInfo.get(1).setText(String.valueOf(apartment.getNumberOfRooms()));
+        viewHolder.flatInfo.get(2).setText(String.valueOf(apartment.getPrice()));
+
+//        Здесь нужно получить через id квартиры Image и презентер должен вернуть адрес картинки
+//        Glide.with(viewHolder.itemView.getContext())
+//                .load()
+//                .placeholder(R.drawable.picture_loading_background)
+//                .error(R.drawable.picture_loading_background)
+//                .into(viewHolder.profileFlatPicture);
+        Log.d("Adapter", String.valueOf(R.color.metro1_sokolnicheskaya));
+        switch (apartment.getMetroBranch()){
+            case 1: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro1_sokolnicheskaya)));
+            case 2: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro2_zamoskvoretskaya)));
+            case 3: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro3_arbatsko_pokrovskaya)));
+            case 4: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro4_philevskaya)));
+            case 5: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro5_koltsevaya)));
+            case 6: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro6_kaluzhsko_rizhskaya)));
+            case 7: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro7_tagansko_krasnopresnenskaya)));
+            case 8: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro8_kalininsko_solntsevskaya)));
+            case 9: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro9_serpuhovsko_timyryazevskaya)));
+            case 10: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro10_lublinskaya)));
+            case 11: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro11_BKL)));
+            case 12: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro12_butovskaya)));
+            case 13: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro13_monorels)));
+            case 14: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro14_MTsK)));
+            case 15: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro15_nekrasovka)));
+            case 16: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
+                    .getResources().getColor(R.color.metro16_comunarskaya)));
+        }
     }
 
     @Override
@@ -62,7 +101,7 @@ public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.
         return data.size();
     }
 
-    public void setItems(List<Flat> newData){
+    public void setItems(List<Apartment> newData){
         data.addAll(newData);
         notifyDataSetChanged();
     }
@@ -80,7 +119,10 @@ public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.
         @BindView(R.id.profile_flat_picture)
         ImageView profileFlatPicture;
 
-        @BindViews({R.id.profile_flat_metro_circle, R.id.profile_flat_metro_station,
+        @BindView(R.id.profile_flat_metro_circle)
+        View metroCircle;
+
+        @BindViews({R.id.profile_flat_metro_station,
                 R.id.profile_flat_number_rooms, R.id.profile_flat_price,
                 R.id.profile_flat_number_of_browsings,
                 R.id.profile_flat_number_of_new_browsings})
