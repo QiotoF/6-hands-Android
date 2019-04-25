@@ -30,7 +30,6 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
 
     @Override
     protected void onFirstViewAttach() {
-        int i = 0;
         super.onFirstViewAttach();
         Disposable disposable = userInfoInteractor.getUserFromVk()
                 .subscribeOn(Schedulers.io())

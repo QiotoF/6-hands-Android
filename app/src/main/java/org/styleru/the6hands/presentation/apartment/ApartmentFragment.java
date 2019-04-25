@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,7 +24,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter;
 import org.styleru.the6hands.ExpandableTextView;
 import org.styleru.the6hands.R;
 import org.styleru.the6hands.SixHandsApplication;
-import org.styleru.the6hands.domain.entities.Flat;
+import org.styleru.the6hands.domain.entities.Apartment;
 
 import java.util.Objects;
 
@@ -87,6 +89,11 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
     @BindView(R.id.tv_description)
     ExpandableTextView descriptionTextView;
 
+    @BindView(R.id.recycler_facilities)
+    RecyclerView facilitesRecyclerView;
+
+    private Apartment apartment;
+
     @Override
     public void onAttach(Context context) {
         SixHandsApplication.getAppComponent().inject(this);
@@ -106,6 +113,10 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
         collapsingToolbarLayout.setTitleEnabled(false);
         descriptionTextView.setTrimLength(200);
 
+        facilitesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        facilitesRecyclerView.setAdapter(new FacilityAdapter(apartment.getFacilities()));
+        showApartment(apartment);
+
         return view;
     }
 
@@ -116,18 +127,18 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
     }
 
     @Override
-    public void setApartment(Flat flat) {
-        setAdress(flat.getAdress());
-        setPrice(flat.getPrice());
-        setMetro(flat.getMetroStation());
-        setTime(flat.getTime());
-        setRoomsNumber(flat.getNumberRooms());
-        setArea(flat.getArea());
-        setFloor(flat.getFloor());
-        setOwner(flat.getOwner());
-        setMutualFriendsNumber(flat.getMutualFriendsNumber());
-        setDescription(flat.getDescription());
-        setFacilities(flat.getFacilities());
+    public void showApartment(Apartment apartment) {
+        setAdress(apartment.getAddress());
+        setPrice(apartment.getPrice());
+        setMetro(apartment.getMetroStation());
+//        setTime(apartment.getTime());
+        setRoomsNumber(apartment.getNumberOfRooms());
+        setArea(apartment.getLivingSpace());
+        setFloor(apartment.getFloor());
+        setOwnerName(String.valueOf(apartment.getIdUser()));
+//        setOwnerAvatar(apartment.get);
+//        setMutualFriendsNumber(apartment.getMutualFriendsNumber());
+//        setDescription(apartment.getDescription());
     }
 
     private void setAdress(String adress) {
@@ -150,27 +161,31 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
         roomsNumberTextView.setText(String.valueOf(roomsNumber));
     }
 
-    private void setArea() {
+    private void setArea(int area) {
+        areaTextView.setText(String.valueOf(area));
+    }
+
+    private void setFloor(int floor) {
+        floorTextView.setText(String.valueOf(floor));
+    }
+
+    private void setOwnerAvatar() {
 
     }
 
-    private void setFloor() {
-
+    private void setOwnerName(String name) {
+        ownerNameTextView.setText(name);
     }
 
-    private void setOwner() {
-
+    private void setMutualFriendsNumber(int number) {
+        mutualFriendsNumberTextView.setText(String.valueOf(number));
     }
 
-    private void setMutualFriendsNumber() {
-
-    }
-
-    private void setDescription() {
-
+    private void setDescription(String description) {
+        descriptionTextView.setText(description);
     }
 
     private void setFacilities() {
-
+        Objects.requireNonNull(facilitesRecyclerView.getAdapter()).notifyDataSetChanged();
     }
 }
