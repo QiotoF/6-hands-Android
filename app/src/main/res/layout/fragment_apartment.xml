@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/flat"
+                android:src="@drawable/apartment"
                 app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar

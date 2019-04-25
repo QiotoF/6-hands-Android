@@ -25,7 +25,7 @@
         android:id="@+id/profile_flat_picture"
         android:layout_width="match_parent"
         android:layout_height="171dp"
-        android:src="@drawable/flat"
+        android:src="@drawable/apartment"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -58,12 +58,12 @@
             app:layout_constraintTop_toTopOf="parent"/>
     </android.support.v7.widget.LinearLayoutCompat>
 
-    <TextView
+    <View
         android:id="@+id/profile_flat_metro_circle"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginTop="6.5dp"
-        android:background="@drawable/small_circle"
+        android:background="@drawable/circle_metro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_flat_picture"
         />
