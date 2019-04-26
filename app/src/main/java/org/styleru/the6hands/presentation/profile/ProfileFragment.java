@@ -33,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ProfileFragment extends MvpAppCompatFragment implements ProfileView {
+public class ProfileFragment extends MvpAppCompatFragment implements ProfileView, IApartmentClick {
 
     @BindView(R.id.profile_name)
     TextView name;
@@ -76,7 +76,7 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ButterKnife.bind(this, view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new ProfileFlatAdapter(getContext(), profilePresenter);
+        adapter = new ProfileFlatAdapter(getContext(), profilePresenter, this);
         recyclerView.setAdapter(adapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -139,5 +139,10 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     @Override
     public void showMessage(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onApartmentClick(Apartment apartment) {
+        profilePresenter.onApartmentClick(apartment);
     }
 }

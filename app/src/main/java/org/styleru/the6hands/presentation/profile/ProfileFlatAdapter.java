@@ -35,11 +35,13 @@ public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.
     private List<Apartment> data = new ArrayList<>();
     private Context context;
     private ProfilePresenter profilePresenter;
+    private IApartmentClick listener;
 
     @Inject
-    ProfileFlatAdapter(Context context, ProfilePresenter profilePresenter){
+    ProfileFlatAdapter(Context context, ProfilePresenter profilePresenter, IApartmentClick listener){
         this.context = context;
         this.profilePresenter = profilePresenter;
+        this.listener = listener;
     }
 
     @NonNull
@@ -57,6 +59,9 @@ public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.
         viewHolder.flatInfo.get(1).setText(String.valueOf(apartment.getNumberOfRooms()));
         viewHolder.flatInfo.get(2).setText(String.valueOf(apartment.getPrice()));
 
+        viewHolder.profileFlatPicture.setOnClickListener(view -> {
+            listener.onApartmentClick(data.get(i));
+        });
 //        Здесь нужно получить через id квартиры Image и презентер должен вернуть адрес картинки
 //        Glide.with(viewHolder.itemView.getContext())
 //                .load(profilePresenter.getImage(apartment.getId()).getPath())

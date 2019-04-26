@@ -4,6 +4,7 @@ package org.styleru.the6hands.presentation.profile;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
+import org.styleru.the6hands.Screens;
 import org.styleru.the6hands.domain.entities.Apartment;
 import org.styleru.the6hands.domain.entities.Image;
 import org.styleru.the6hands.domain.interactors.ApartmentInteractor;
@@ -17,6 +18,7 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import ru.terrakok.cicerone.Router;
 
 @InjectViewState
 public class ProfilePresenter extends MvpPresenter<ProfileView> {
@@ -25,11 +27,13 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
     private final List<Apartment> data = new ArrayList<>(3);
     private final UserInfoInteractor userInfoInteractor;
     private final ApartmentInteractor apartmentInteractor;
+    private Router router;
 
     @Inject
-    ProfilePresenter(UserInfoInteractor userInfoInteractor, ApartmentInteractor apartmentInteractor) {
+    ProfilePresenter(UserInfoInteractor userInfoInteractor, ApartmentInteractor apartmentInteractor, Router router) {
         this.userInfoInteractor = userInfoInteractor;
         this.apartmentInteractor = apartmentInteractor;
+        this.router = router;
     }
 
     @Override
@@ -40,7 +44,8 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         user -> getViewState().setUser(user),
-                        e -> {}
+                        e -> {
+                        }
                 );
 //        Disposable disposable1 = apartmentInteractor.getApartmentList()
 //                .subscribeOn(Schedulers.io())
@@ -49,28 +54,34 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
 //                e -> {});
 
         data.add(new Apartment(1, "1", 1, 1, 1, 1
-        ,1, 1000, 1, 1, 1,
+                , 1, 1000, 1, 1, 1,
                 1, 1, null, null, 1, "Славянский бульвар"));
         data.add(new Apartment(1, "1", 1, 1, 1, 1
-                ,1, 1000, 1, 1, 1,
+                , 1, 1000, 1, 1, 1,
                 1, 1, null, null, 2, "Славянский бульвар"));
         data.add(new Apartment(1, "1", 1, 1, 1, 1
-                ,1, 1000, 1, 1, 1,
+                , 1, 1000, 1, 1, 1,
                 1, 1, null, null, 3, "Славянский бульвар"));
 
 
         getViewState().addFlats(data);
     }
 
-    public Image getImage(int id){
+    public Image getImage(int id) {
         final Image[] image = new Image[1];
         Disposable disposable = apartmentInteractor.getImageById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(newImage -> {
                             image[0] = new Image(newImage.getId(), newImage.getIdUser(),
-                                newImage.getIdApartment(), newImage.getPath());},
-                e -> {});
+                                    newImage.getIdApartment(), newImage.getPath());
+                        },
+                        e -> {
+                        });
         return image[0];
+    }
+
+    public void onApartmentClick(Apartment apartment) {
+        router.navigateTo(new Screens.ApartmentScreen(apartment));
     }
 }
