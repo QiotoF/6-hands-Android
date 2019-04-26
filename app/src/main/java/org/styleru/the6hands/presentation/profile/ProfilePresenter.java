@@ -57,9 +57,10 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
 
         ArrayList<Facilities> facilities = new ArrayList<>();
         facilities.add(new Facilities(1, "Wi-Fi", "R.drawable.wifi"));
-        data.add(new Apartment(1, "1", 1, 1, 1, 1
-                , 1, 1000, 1, 1, 1,
-                1, 1, null, facilities, 1, "Славянский бульвар"));
+        facilities.add(new Facilities(2, "Парковка", "R.drawable.parking"));
+        data.add(new Apartment(1, "ул. Южная, 3", 3, 26, 27, 1
+                , 2, 9, 2, 1, 1,
+                5000000, 1, null, facilities, 2, "Славянский бульвар"));
         data.add(new Apartment(1, "1", 1, 1, 1, 1
                 , 1, 1000, 1, 1, 1,
                 1, 1, null, null, 2, "Славянский бульвар"));
