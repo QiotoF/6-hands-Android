@@ -1,7 +1,10 @@
 package org.styleru.the6hands.domain.entities;
 
+import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 
+
+@Parcel(Parcel.Serialization.BEAN)
 public class ApartFac {
     private int id;
     private int idApatment;

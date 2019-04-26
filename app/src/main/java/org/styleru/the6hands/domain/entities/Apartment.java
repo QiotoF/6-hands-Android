@@ -1,11 +1,14 @@
 package org.styleru.the6hands.domain.entities;
 
+import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 
 import java.util.List;
 
 import io.reactivex.annotations.Nullable;
 
+
+@Parcel(Parcel.Serialization.BEAN)
 public class Apartment {
     private int  id;
     private int price;
