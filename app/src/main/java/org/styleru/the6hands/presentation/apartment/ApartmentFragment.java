@@ -79,7 +79,7 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
     TextView ownerNameTextView;
 
     @BindView(R.id.image_owner_avatar)
-    TextView ownerAvatarImage;
+    ImageView ownerAvatarImage;
 
     @BindView(R.id.tv_mutual_friends_number)
     TextView mutualFriendsNumberTextView;
@@ -107,7 +107,7 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
         View view = inflater.inflate(R.layout.fragment_apartment, container, false);
         setHasOptionsMenu(true);
         ButterKnife.bind(this, view);
-        apartment = Parcels.unwrap(savedInstanceState.getBundle("Flat"));
+        apartment = Parcels.unwrap(this.getArguments().getParcelable("Flat"));
         ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayShowTitleEnabled(false);
@@ -115,7 +115,7 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
         descriptionTextView.setTrimLength(200);
 
         facilitesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        facilitesRecyclerView.setAdapter(new FacilityAdapter(apartment.getFacilities()));
+//        facilitesRecyclerView.setAdapter(new FacilityAdapter(apartment.getFacilities()));
         return view;
     }
 
