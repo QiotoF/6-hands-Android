@@ -21,6 +21,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 
+import org.parceler.Parcels;
 import org.styleru.the6hands.ExpandableTextView;
 import org.styleru.the6hands.R;
 import org.styleru.the6hands.SixHandsApplication;
@@ -106,7 +107,7 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
         View view = inflater.inflate(R.layout.fragment_apartment, container, false);
         setHasOptionsMenu(true);
         ButterKnife.bind(this, view);
-
+        apartment = Parcels.unwrap(savedInstanceState.getBundle("Flat"));
         ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayShowTitleEnabled(false);
@@ -115,10 +116,9 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
 
         facilitesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         facilitesRecyclerView.setAdapter(new FacilityAdapter(apartment.getFacilities()));
-        showApartment(apartment);
-
         return view;
     }
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -127,7 +127,7 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
     }
 
     @Override
-    public void showApartment(Apartment apartment) {
+    public void showApartment() {
         setAdress(apartment.getAddress());
         setPrice(apartment.getPrice());
         setMetro(apartment.getMetroStation());

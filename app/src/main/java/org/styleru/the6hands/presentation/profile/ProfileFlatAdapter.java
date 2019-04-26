@@ -3,6 +3,7 @@ package org.styleru.the6hands.presentation.profile;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import org.styleru.the6hands.R;
+import org.styleru.the6hands.dagger.ContextModule;
 import org.styleru.the6hands.domain.entities.Apartment;
 
 import java.util.ArrayList;
@@ -61,42 +63,40 @@ public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.
 //                .placeholder(R.drawable.picture_loading_background)
 //                .error(R.drawable.picture_loading_background)
 //                .into(viewHolder.profileFlatPicture);
-        Log.d("Adapter", String.valueOf(ColorStateList.valueOf(context
-                .getResources().getColor(R.color.metro1_sokolnicheskaya))));
-
+        Log.d("Adapter", String.valueOf(context.getDrawable(R.drawable.circle_metro1)));
         switch (apartment.getMetroBranch()){
-            case 1: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro1_sokolnicheskaya)));
-            case 2: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro2_zamoskvoretskaya)));
-            case 3: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro3_arbatsko_pokrovskaya)));
-            case 4: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro4_philevskaya)));
-            case 5: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro5_koltsevaya)));
-            case 6: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro6_kaluzhsko_rizhskaya)));
-            case 7: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro7_tagansko_krasnopresnenskaya)));
-            case 8: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro8_kalininsko_solntsevskaya)));
-            case 9: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro9_serpuhovsko_timyryazevskaya)));
-            case 10: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro10_lublinskaya)));
-            case 11: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro11_BKL)));
-            case 12: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro12_butovskaya)));
-            case 13: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro13_monorels)));
-            case 14: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro14_MTsK)));
-            case 15: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro15_nekrasovka)));
-            case 16: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
-                    .getResources().getColor(R.color.metro16_comunarskaya)));
+            case 1: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro1));
+            case 2: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro2));
+            case 3: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro3));
+            case 4: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro4));
+            case 5: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro5));
+            case 6: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro6));
+            case 7: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro7));
+            case 8: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro8));
+            case 9: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro9));
+            case 10: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro10));
+            case 11: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro11));
+            case 12: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro12));
+            case 13: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro13));
+            case 14: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro14));
+            case 15: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro15));
+            case 16: viewHolder.metroCircle.
+                    setBackground(context.getDrawable(R.drawable.circle_metro16));
         }
     }
 
