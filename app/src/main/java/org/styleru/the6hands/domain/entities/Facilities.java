@@ -1,7 +1,9 @@
 package org.styleru.the6hands.domain.entities;
 
+import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 
+@Parcel(Parcel.Serialization.BEAN)
 public class Facilities {
     private int id;
     private String name;
