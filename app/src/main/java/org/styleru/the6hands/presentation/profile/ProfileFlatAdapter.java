@@ -32,10 +32,12 @@ public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.
 
     private List<Apartment> data = new ArrayList<>();
     private Context context;
+    private ProfilePresenter profilePresenter;
 
     @Inject
-    ProfileFlatAdapter(Context context){
+    ProfileFlatAdapter(Context context, ProfilePresenter profilePresenter){
         this.context = context;
+        this.profilePresenter = profilePresenter;
     }
 
     @NonNull
@@ -55,11 +57,13 @@ public class ProfileFlatAdapter extends RecyclerView.Adapter<ProfileFlatAdapter.
 
 //        Здесь нужно получить через id квартиры Image и презентер должен вернуть адрес картинки
 //        Glide.with(viewHolder.itemView.getContext())
-//                .load()
+//                .load(profilePresenter.getImage(apartment.getId()).getPath())
 //                .placeholder(R.drawable.picture_loading_background)
 //                .error(R.drawable.picture_loading_background)
 //                .into(viewHolder.profileFlatPicture);
-        Log.d("Adapter", String.valueOf(R.color.metro1_sokolnicheskaya));
+        Log.d("Adapter", String.valueOf(ColorStateList.valueOf(context
+                .getResources().getColor(R.color.metro1_sokolnicheskaya))));
+
         switch (apartment.getMetroBranch()){
             case 1: viewHolder.metroCircle.setBackgroundTintList(ColorStateList.valueOf(context
                     .getResources().getColor(R.color.metro1_sokolnicheskaya)));

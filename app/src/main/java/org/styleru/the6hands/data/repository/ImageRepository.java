@@ -4,6 +4,8 @@ import org.styleru.the6hands.data.repository.Api.ImageApi;
 import org.styleru.the6hands.domain.entities.Image;
 import org.styleru.the6hands.domain.repository.IImageRepository;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import io.reactivex.Completable;
@@ -21,12 +23,12 @@ public class ImageRepository implements IImageRepository {
     }
 
     @Override
-    public Observable getImageList() {
+    public Observable<List<Image>> getImageList() {
         return imageApi.getImageList();
     }
 
     @Override
-    public Single getImageById(int id) {
+    public Single<Image> getImageById(int id) {
         return imageApi.getImageById(id);
     }
 

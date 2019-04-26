@@ -18,5 +18,5 @@ public interface ProfileView extends MvpView {
     void showMessage(String message);
 
     @StateStrategyType(AddToEndSingleStrategy.class)
-    void showFlats(List<Apartment> data);
+    void addFlats(List<Apartment> data);
 }

@@ -11,7 +11,8 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {NavigationModule.class, RepositoryModule.class, ContextModule.class})
+@Component(modules = {NavigationModule.class, RepositoryModule.class, ContextModule.class,
+            RetrofitModule.class})
 public interface AppComponent {
 
     void inject(AuthActivity authActivity);

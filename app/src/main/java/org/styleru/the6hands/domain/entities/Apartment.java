@@ -19,22 +19,23 @@ public class Apartment {
     private int numberOfBalconies;
     private int numberOfLoggias;
     private int idUser;
-    private int idFacility;
     private int metroBranch;
     private String metroStation;
     private String address;
     private List<Image> images;
     private List<Facilities> facilities;
 
+
     @ParcelConstructor
     public Apartment(int id, String address, int numberOfRooms, int numberOfMeters, int livingSpace,
                      int kitchen, int ceilingHeight, int floor, int numberOfFloorsInBuilding,
-                     int numberOfBalconies, int numberOfLoggias,  int price, int idUser,
-                     @Nullable List<Image> images,
-                     int idFacility, @Nullable List<Facilities> facilities, int metroBranch,
+                     int numberOfBalconies, int numberOfLoggias, int price, int idUser,
+                     @Nullable List<Image> images, @Nullable List<Facilities> facilities,
+                     int metroBranch,
                      String metroStation){
         this.id = id;
         this.address = address;
+        this.facilities = facilities;
         this.metroBranch = metroBranch;
         this.metroStation = metroStation;
         this.numberOfRooms = numberOfRooms;
@@ -49,8 +50,6 @@ public class Apartment {
         this.price = price;
         this.idUser = idUser;
         this.images = images;
-        this.idFacility = idFacility;
-        this.facilities = facilities;
     }
 
 
@@ -158,28 +157,12 @@ public class Apartment {
         this.idUser = idUser;
     }
 
-    public int getIdFacility() {
-        return idFacility;
-    }
-
-    public void setIdFacility(int idFacility) {
-        this.idFacility = idFacility;
-    }
-
     public List<Image> getImages() {
         return images;
     }
 
     public void setImages(List<Image> images) {
         this.images = images;
-    }
-
-    public List<Facilities> getFacilities() {
-        return facilities;
-    }
-
-    public void setFacilities(List<Facilities> facilities) {
-        this.facilities = facilities;
     }
 
     public int getMetroBranch() {
@@ -196,5 +179,13 @@ public class Apartment {
 
     public void setMetroStation(String metroStation) {
         this.metroStation = metroStation;
+    }
+
+    public List<Facilities> getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(List<Facilities> facilities) {
+        this.facilities = facilities;
     }
 }

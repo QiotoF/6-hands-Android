@@ -4,6 +4,8 @@ import org.styleru.the6hands.data.repository.Api.FlatApi;
 import org.styleru.the6hands.domain.entities.Apartment;
 import org.styleru.the6hands.domain.repository.IFlatRepository;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import io.reactivex.Completable;
@@ -20,12 +22,12 @@ public class FlatRepository implements IFlatRepository {
     }
 
     @Override
-    public Observable getApartmentsList() {
+    public Observable<List<Apartment>> getApartmentsList() {
         return flatApi.getApartmentList();
     }
 
     @Override
-    public Single getApartmentById(int id) {
+    public Single<Apartment> getApartmentById(int id) {
         return flatApi.getApartment(id);
     }
 

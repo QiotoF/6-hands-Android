@@ -76,8 +76,21 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ButterKnife.bind(this, view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new ProfileFlatAdapter(getContext());
+        adapter = new ProfileFlatAdapter(getContext(), profilePresenter);
         recyclerView.setAdapter(adapter);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(dy > 0) fab.hide();
+                else fab.show();
+            }
+        });
         Glide.with(this)
                 .load(R.drawable.ic_plus)
                 .into(fab);
@@ -97,22 +110,11 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     }
 
     @Override
-    public void showFlats(List<Apartment> data){
+    public void addFlats(List<Apartment> data){
         adapter.setItems(data);
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if(dy > 0) fab.hide();
-                else fab.show();
-            }
-        });
     }
+
+
 
     @OnClick(R.id.change_profile_data)
     void onChangeDataClicked(){

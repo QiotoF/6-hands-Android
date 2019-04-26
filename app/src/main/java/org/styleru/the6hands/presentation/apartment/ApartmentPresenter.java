@@ -26,7 +26,7 @@ public class ApartmentPresenter extends MvpPresenter<ApartmentView> {
     protected void onFirstViewAttach() {
         super.onFirstViewAttach();
         //TODO: realize obtaining of apartment from the previous screen
-        getViewState().showApartment();
+//        getViewState().showApartment();
 //        Disposable disposable = apartmentInteractor.getApartmentById()
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
