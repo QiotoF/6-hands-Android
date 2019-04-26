@@ -4,8 +4,10 @@ package org.styleru.the6hands.presentation.profile;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
+import org.styleru.the6hands.R;
 import org.styleru.the6hands.Screens;
 import org.styleru.the6hands.domain.entities.Apartment;
+import org.styleru.the6hands.domain.entities.Facilities;
 import org.styleru.the6hands.domain.entities.Image;
 import org.styleru.the6hands.domain.interactors.ApartmentInteractor;
 import org.styleru.the6hands.domain.interactors.UserInfoInteractor;
@@ -53,9 +55,11 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
 //                .subscribe(flat -> getViewState().addFlats(flat),
 //                e -> {});
 
+        ArrayList<Facilities> facilities = new ArrayList<>();
+        facilities.add(new Facilities(1, "Wi-Fi", "R.drawable.wifi"));
         data.add(new Apartment(1, "1", 1, 1, 1, 1
                 , 1, 1000, 1, 1, 1,
-                1, 1, null, null, 1, "Славянский бульвар"));
+                1, 1, null, facilities, 1, "Славянский бульвар"));
         data.add(new Apartment(1, "1", 1, 1, 1, 1
                 , 1, 1000, 1, 1, 1,
                 1, 1, null, null, 2, "Славянский бульвар"));

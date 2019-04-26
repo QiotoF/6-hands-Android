@@ -1,6 +1,7 @@
 package org.styleru.the6hands.presentation.apartment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,6 +28,7 @@ import org.styleru.the6hands.ExpandableTextView;
 import org.styleru.the6hands.R;
 import org.styleru.the6hands.SixHandsApplication;
 import org.styleru.the6hands.domain.entities.Apartment;
+import org.styleru.the6hands.presentation.mainscreen.MainActivity;
 
 import java.util.Objects;
 
@@ -33,6 +36,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ru.terrakok.cicerone.Router;
 
 public class ApartmentFragment extends MvpAppCompatFragment implements ApartmentView {
 
@@ -95,6 +99,8 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
 
     private Apartment apartment;
 
+    Router router;
+
     @Override
     public void onAttach(Context context) {
         SixHandsApplication.getAppComponent().inject(this);
@@ -115,9 +121,22 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
         descriptionTextView.setTrimLength(200);
 
         facilitesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        facilitesRecyclerView.setAdapter(new FacilityAdapter(apartment.getFacilities()));
+        facilitesRecyclerView.setAdapter(new FacilityAdapter(apartment.getFacilities()));
         return view;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                apartmentPresenter.onHomeClick();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
 
     @Override

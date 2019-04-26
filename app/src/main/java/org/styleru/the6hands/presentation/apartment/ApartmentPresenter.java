@@ -11,15 +11,19 @@ import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import ru.terrakok.cicerone.Router;
 
 @InjectViewState
 public class ApartmentPresenter extends MvpPresenter<ApartmentView> {
 
+    private Router router;
+
 //    private final ApartmentInteractor apartmentInteractor;
 
     @Inject
-    ApartmentPresenter(/*ApartmentInteractor apartmentInteractor*/) {
+    ApartmentPresenter(/*ApartmentInteractor apartmentInteractor*/Router router) {
 //        this.apartmentInteractor = apartmentInteractor;
+        this.router = router;
     }
 
     @Override
@@ -35,6 +39,9 @@ public class ApartmentPresenter extends MvpPresenter<ApartmentView> {
 //                );
     }
 
+    public void onHomeClick() {
+        router.exit();
+    }
 
 
 }
