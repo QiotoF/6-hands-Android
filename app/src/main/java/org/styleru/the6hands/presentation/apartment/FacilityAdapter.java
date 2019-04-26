@@ -39,7 +39,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.Facili
 
     @Override
     public int getItemCount() {
-        return 0;
+        return facilities.size();
     }
 
     public static class FacilityViewHolder extends RecyclerView.ViewHolder {

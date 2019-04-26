@@ -125,6 +125,8 @@ public class ApartmentFragment extends MvpAppCompatFragment implements Apartment
         return view;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
